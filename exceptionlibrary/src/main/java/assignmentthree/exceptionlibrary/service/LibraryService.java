@@ -31,18 +31,18 @@ public class LibraryService implements ILibraryService {
 			throw new EmptyInputException();
 		}
 		
-		boolean projectPresence = false;
-		boolean modulePresence = false;
-		boolean exceptionPresence = false;
+		int projectPresence = 0;
+		int modulePresence = 0;
+		int exceptionPresence = 0;
 		for(Project p: projects) {
 			if(p.getName().equals(project)) {
-				projectPresence = true;
+				projectPresence = 1;
 				for(Module m: p.getModules()) {
 					if(m.getName().equals(module)) {
-						modulePresence = true;
+						modulePresence = 1;
 						for(PossibleException e:m.getExceptions()) {
 							if(e.getName().equals(exception)) {
-								exceptionPresence = true;
+								exceptionPresence = 1;
 								return e.getActions();
 							}
 						}
@@ -51,11 +51,11 @@ public class LibraryService implements ILibraryService {
 			}
 		}
 		
-		if(projectPresence == false) {
+		if(projectPresence == 0) {
 			throw new ProjectDoesNotExistException();
-		} else if(modulePresence == false) {
+		} else if(modulePresence == 0) {
 			throw new ModuleDoesNotExistException();
-		} else if(exceptionPresence != true) {
+		} else if(exceptionPresence == 0) {
 			throw new ExceptionDoesNotExistException();
 		}
 		
