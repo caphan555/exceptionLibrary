@@ -55,7 +55,7 @@ public class LibraryService implements ILibraryService {
 			throw new ProjectDoesNotExistException();
 		} else if(modulePresence == false) {
 			throw new ModuleDoesNotExistException();
-		} else if(exceptionPresence == false) {
+		} else if(exceptionPresence != true) {
 			throw new ExceptionDoesNotExistException();
 		}
 		

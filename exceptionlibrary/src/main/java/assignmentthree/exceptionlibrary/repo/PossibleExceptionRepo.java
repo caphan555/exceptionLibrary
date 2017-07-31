@@ -7,7 +7,8 @@ import assignmentthree.exceptionlibrary.pojo.PossibleException;
 public class PossibleExceptionRepo implements IExceptionRepo{
 	
 	private List<PossibleException> exceptions;
-	
+	private String exceptionInfo;
+	private PossibleException foundException;
 	
 	public PossibleExceptionRepo() {
 		super();
@@ -18,18 +19,15 @@ public class PossibleExceptionRepo implements IExceptionRepo{
 	}
 
 	public String save(PossibleException exception) {
-		// TODO Auto-generated method stub
-		return null;
+		return exceptionInfo;
 	}
 
 	public PossibleException findOne(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return foundException;
 	}
 
 	public List<PossibleException> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return exceptions;
 	}
 
 }
