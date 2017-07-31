@@ -7,7 +7,8 @@ import assignmentthree.exceptionlibrary.pojo.Action;
 public class ActionRepo implements IActionRepo{
 	
 	private List<Action> actions;
-	
+	private String actionInfo;
+	private Action foundAction;
 	
 	
 	public ActionRepo() {
@@ -19,18 +20,15 @@ public class ActionRepo implements IActionRepo{
 	}
 
 	public String save(Action action) {
-		// TODO Auto-generated method stub
-		return null;
+		return actionInfo;
 	}
 
 	public Action findOne(String action) {
-		// TODO Auto-generated method stub
-		return null;
+		return foundAction;
 	}
 
 	public List<Action> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return actions;
 	}
 
 }

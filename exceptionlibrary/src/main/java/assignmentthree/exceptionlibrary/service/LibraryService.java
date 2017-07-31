@@ -27,7 +27,7 @@ public class LibraryService implements ILibraryService {
 		if(project == null || module == null || exception == null) {
 			throw new NullPointerException();
 		}
-		if(project.equals("") || module.equals("") || exception.equals("")) {
+		if(("").equals(project) || ("").equals(module) || ("").equals(exception)) {
 			throw new EmptyInputException();
 		}
 		
@@ -51,11 +51,11 @@ public class LibraryService implements ILibraryService {
 			}
 		}
 		
-		if(!projectPresence) {
+		if(projectPresence == false) {
 			throw new ProjectDoesNotExistException();
-		} else if(!modulePresence) {
+		} else if(modulePresence == false) {
 			throw new ModuleDoesNotExistException();
-		} else if(!exceptionPresence) {
+		} else if(exceptionPresence == false) {
 			throw new ExceptionDoesNotExistException();
 		}
 		
@@ -78,14 +78,10 @@ public class LibraryService implements ILibraryService {
 				String suggestion = executingAction.executeAction(a);
 				recommendedActions.add(suggestion);
 				
-			} catch (ClassNotFoundException e) {
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 
 				e.printStackTrace();
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
+			} 
 		}
 		return recommendedActions;
 	}

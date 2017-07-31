@@ -7,7 +7,8 @@ import assignmentthree.exceptionlibrary.pojo.Module;
 public class ModuleRepo implements IModuleRepo{
 
 	private List<Module> modules;
-	
+	private String moduleInfo;
+	private Module foundModule;
 	
 	
 	public ModuleRepo() {
@@ -19,18 +20,15 @@ public class ModuleRepo implements IModuleRepo{
 	}
 
 	public String save(Module module) {
-		// TODO Auto-generated method stub
-		return null;
+		return moduleInfo;
 	}
 
 	public Module findOne(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return foundModule;
 	}
 
 	public List<Module> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return modules;
 	}
 
 }

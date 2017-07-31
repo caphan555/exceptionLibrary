@@ -38,19 +38,8 @@ import assignmentthree.exceptionlibrary.service.LibraryService;
  */
 public class App 
 {
-	private IProjectRepo projectRepo = new ProjectRepo();
-	private IModuleRepo moduleRepo = new ModuleRepo();
-	private IExceptionRepo possibleExceptionRepo = new PossibleExceptionRepo();
-	private IActionRepo actionRepo = new ActionRepo();
-	private List<Action> savedActions = new ArrayList<>();
-	private List<String> recommendedActions = new ArrayList<>();
 	
-    public static void main( String[] args )
-    {
-    	
-    	
-    	
-    }
+   
     
     public ILibraryService setupLibrary() {
     	List<Project> projects = setUp();
@@ -76,16 +65,14 @@ public class App
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
-            //System.out.println("Root element :" 
-              // + doc.getDocumentElement().getNodeName());
+           
             NodeList nList = doc.getElementsByTagName("project");
             for (int temp = 0; temp < nList.getLength(); temp++) {
                Node nNode = nList.item(temp);
                Element nElement = (Element)nNode;
                
                String projectName = nElement.getAttribute("name");
-               //System.out.println("\nProject :" 
-                 // + projectName);
+             
                
                List<Module> modules = new ArrayList<>();
                Project newProject = new Project(projectName, modules);
@@ -97,8 +84,7 @@ public class App
                        Element mElement = (Element) mNode;
                        
                        String moduleName = mElement.getAttribute("name");
-                      // System.out.println("module : " 
-                        //  + moduleName);
+                 
                        List<PossibleException> exceptions = new ArrayList<>();
                        Module newModule = new Module(moduleName, exceptions);
                        
@@ -109,9 +95,7 @@ public class App
                     		   Element eElement = (Element) eNode;
                     		   
                     		   String exceptionName = eElement.getAttribute("type");
-                    		  // System.out.println("exception : "
-                    			//	   +exceptionName);
-                    		   
+                    		 
                     		   List<Action> actions = new ArrayList<>();
                     		   PossibleException newPossibleException = new PossibleException(exceptionName, actions);
                     		   
@@ -144,7 +128,6 @@ public class App
                     	   }
                     	   
                        }
-                       //System.out.println();
                        newProject.getModules().add(newModule);
             	   }
             	   
@@ -153,25 +136,11 @@ public class App
               
             }
           
-            for(Project p:projects) {
-            	System.out.println("Project: "+p.getName());
-            	for(Module m:p.getModules()) {
-            		System.out.println("Module: "+m.getName());
-            		for(PossibleException pe:m.getExceptions()) {
-            			System.out.println("Exception: "+pe.getName());
-            			System.out.println("Action: ");
-            			for(Action a:pe.getActions()) {
-            				System.out.println(a.getDescription());
-            			}
-            			System.out.println();
-            		}
-            	}
-            	System.out.println();
-            }
+           
             return projects;
          } catch (Exception e) {
             e.printStackTrace();
          }
-		return null;
+		return new ArrayList<Project>();
     }
 }

@@ -7,7 +7,8 @@ import assignmentthree.exceptionlibrary.pojo.Project;
 public class ProjectRepo implements IProjectRepo {
 
 	private List<Project> projects;
-	
+	private String projectInfo;
+	private Project foundProject;
 	
 	
 	public ProjectRepo() {
@@ -19,18 +20,15 @@ public class ProjectRepo implements IProjectRepo {
 	}
 
 	public String save(Project project) {
-		// TODO Auto-generated method stub
-		return null;
+		return projectInfo;
 	}
 
 	public Project findOne(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return foundProject;
 	}
 
 	public List<Project> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return projects;
 	}
 
 }
