@@ -1,0 +1,64 @@
+<exception_library>
+	<project name="bank">
+		<module name="withdraw">
+			<exception type="java.lang.NullPointerException">
+				<action>
+					<Email to="incharge@gmail.com"/>
+					<Sms to="90929092"/>
+				</action>
+			</exception>
+			<exception type="java.lang.ArrayIndexOutOfBounds">
+				<action>
+					<Log to="info.txt" with="encryption to the text file"/>
+					<Email to="jen@gmail.com"/>
+				</action>
+			</exception>
+		</module>
+		<module name="deposit">
+			<exception type="java.lang.Exception.InvalidAccount">
+				<action>
+					<Call to="67849030"/>
+					<Email to="tom@gmail.com"/>
+				</action>
+			</exception>
+			<exception type="java.lang.NullPointerException">
+				<action>
+					<Sms to="98029201"/>
+					<Log to="infonull.txt"/>
+				</action>
+			</exception>
+		</module>
+	</project>		
+
+	<project name="scheduler">
+		<module name="generateGameWiseReport">
+			<exception type="java.lang.NullPointerException">
+				<action>
+					<Email to="chairre@gmail.com"/>
+					<Sms to="89202819"/>
+				</action>
+			</exception>
+			<exception type="java.lang.Exception.AbsenceReport">
+				<action>
+					<Log to="info.txt"/>
+					<Email to="john@gmail.com"/>
+				</action>
+			</exception>
+		</module>
+		<module name="generatePlayerWiseReport">
+			<exception type="java.lang.Exception.PlayerNameAbsence">
+				<action>
+					<Call to="68920202"/>
+					<Email to="jess@gmail.com"/>
+				</action>
+			</exception>
+			<exception type="java.lang.NullPointerException">
+				<action>
+					<Sms to="8904232"/>
+					<Log to="infonull.txt"/>
+				</action>
+			</exception>
+		</module>
+	</project>
+
+</exception_library>
